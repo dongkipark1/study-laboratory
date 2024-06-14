@@ -1,2 +1,4 @@
-package org.example.videosample.video;public class Controller {
+package org.example.videosample.video;
+
+public class VideoController {
 }
