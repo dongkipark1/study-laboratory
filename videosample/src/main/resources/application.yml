@@ -14,4 +14,4 @@ spring:
       enabled: true
 
 file:
-  upload-dir: uploads
+  upload-dir: src/main/resources/static/uploads

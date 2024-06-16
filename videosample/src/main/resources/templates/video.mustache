@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Video Upload</title>
+    <meta charset="UTF-8">
+    <title>{{video.title}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
-<h1>비디오 업로드</h1>
-<form method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <input type="text" name="title" placeholder="Title" />
-    <textarea name="description" placeholder="Description"></textarea>
-    <button type="submit">Upload</button>
-</form>
-<h2>비디오 업로드 샘플</h2>
-<ul>
-    {{#videos}}
-        <li>
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <video width="320" height="240" controls>
-                <source src="{{filePath}}" type="video/mp4" />
-            </video>
-        </li>
-    {{/videos}}
-</ul>
+<h1>{{video.title}}</h1>
+<p>{{video.description}}</p>
+<video id="video" controls></video>
+<script>
+    var video = document.getElementById('video');
+    if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource('/{{video.filePath}}');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = '/{{video.filePath}}';
+        video.addEventListener('canplay',function() {
+            video.play();
+        });
+    }
+</script>
 </body>
 </html>
