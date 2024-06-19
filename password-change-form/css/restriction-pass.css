@@ -85,7 +85,7 @@ header {
 main {
     width: 100%;
     max-width: 1000px;
-    padding: 20px;
+    padding: 30px;
     margin-left: 60px;
     background-color: #f3f3f3;
     text-align: left;
@@ -114,16 +114,19 @@ label {
     display: inline-block;
     margin-bottom: 5px;
     font-weight: bold;
+    margin-right: 10px;
 }
 
+
 .input-container {
-    display: flex;
+    width: 100%;
+    display: inline-flex;
     align-items: center;
     margin-bottom: 40px;
 }
 
 input[type="password"] {
-    width: 50%;
+    width: 40%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -135,10 +138,12 @@ input::placeholder {
 }
 
 a.password-reset {
-    margin-left: 10px;
+    width: 90%;
+    margin-left: 20px;
     color: #0071eb;
     text-decoration: none;
     font-size: 12px;
+    font-weight: bold;
 }
 
 a.password-reset:hover {
@@ -201,7 +206,6 @@ a:hover {
     background-color: #e6e6e6;
     color: #333;
 }
-
 .divider {
     border: 0;
     height: 1px;
@@ -227,15 +231,23 @@ footer {
 }
 
 .footer-subtitle {
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     width: 100%;
+    margin-bottom: 40px; /* Add space between subtitle and links */
+}
+
+.link-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px; /* Add space between link groups */
 }
 
 .footer-links a {
     color: #666;
     text-decoration: none;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 20px 0;
     font-size: 12px;
 }
 
@@ -268,5 +280,5 @@ footer {
 .service-code-content p {
     font-weight: bold;
     font-size: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
